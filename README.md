@@ -13,37 +13,49 @@ Described is the workflow for setting up a master node. For any worker, replace 
 
 - flash image on SD card; set WiFi and hostname if desired
 
+```
     ./pis4kubi.py flash -s AndroidAP -p password -n k8s-master-1
+```
 
 - insert SD card in Pi and power on
 
 - search for Pi (-w for watching)
 
+```
     ./pis4kubi.py search -w
+```
 
 - configure ssh: requires the password of the Raspberry Pi admin, 'hypriot'
 
+```
     ./pis4kubi.py -h k8s-master-1 setup_ssh
+```
 
 - preparations (multi-command execution; note: restart after upgrade is important!)
 
+```
     ./pis4kubi.py -h k8s-master-1 copy_config upgrade install restart prepare_k8s
+```
 
 - install k8s-master (or worker)
 
+```
     ./pis4kubi.py -h k8s-master-1 k8s_master_install
-
+```
 
 ### Useful Tools
 
 - search for Pi (-w for watching)
 
+```
     ./pis4kubi.py search -w
+```
 
 - log into machine for analyzing / see logs / ..
 
+```
     ./pis4kubi.py -h k8s-master-1 login
-
+```
 
 ### Additional references
 
