@@ -56,6 +56,22 @@ Described is the workflow for setting up a master node. For any worker, replace 
     ./pis4kubi.py -h k8s-master-1 login
 ```
 
+### Known issue
+
+* worker does not reconnect to cluster; solution
+    * login to worker
+
+```
+    ./pis4kubi.py -h k8s-worker-1 login
+```
+
+    * and start docker service anew
+
+```
+    sudo systemctl restart docker.service
+```
+
+
 ### Additional references
 
 [http://blog.kubernetes.io/2015/12/creating-raspberry-pi-cluster-running.html](http://blog.kubernetes.io/2015/12/creating-raspberry-pi-cluster-running.html)
