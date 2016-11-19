@@ -56,16 +56,15 @@ Described is the workflow for setting up a master node. For any worker, replace 
     ./pis4kubi.py -h k8s-master-1 login
 ```
 
-### Known issue
+### Known issues
 
 * worker does not reconnect to cluster; solution
-    * login to worker
+    - login to worker and
+    - start docker service anew
 
 ```
     ./pis4kubi.py -h k8s-worker-1 login
 ```
-
-    * and start docker service anew
 
 ```
     sudo systemctl restart docker.service
