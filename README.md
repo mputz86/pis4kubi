@@ -3,7 +3,6 @@
 
 This script helps you to setup a raspberry pi cluster. Everything is base on [https://github.com/mputz86/k8s-on-rpi](https://github.com/mputz86/k8s-on-rpi) (thanks to [awassink](https://github.com/awassink) for his work in the [repository I forked](https://github.com/awassink/k8s-on-rpi)).
 
-The script can be run via.
 
 ### Workflow
 
