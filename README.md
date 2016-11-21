@@ -1,7 +1,7 @@
 
 ## Script for setting up Raspberry Pi Kubernetes Cluster
 
-This script helps you to setup a raspberry pi cluster. Everything is base on [https://github.com/mputz86/k8s-on-rpi](https://github.com/mputz86/k8s-on-rpi) (thanks to [awassink](https://github.com/awassink) for his work in the [repository I forked](https://github.com/awassink/k8s-on-rpi)).
+This script helps you to setup a Raspberry Pi cluster based on [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases). Setting up the cluster is is base on [https://github.com/mputz86/k8s-on-rpi](https://github.com/mputz86/k8s-on-rpi) (thanks to [awassink](https://github.com/awassink) for his work in the [repository I forked](https://github.com/awassink/k8s-on-rpi)).
 
 
 ### Workflow
@@ -10,7 +10,10 @@ Described is the workflow for setting up a master node. For any worker, replace 
 
 - insert SD card in your linux / mac machine
 
-- flash image on SD card; set WiFi and hostname if desired
+- flash image on SD card
+    - set WiFi and hostname if desired
+    - important: set the `-n k8s-master-1` unique in your cluster (eg k8s-worker-1 for the first worker node)
+    - note: flashes [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases) on the SD card
 
 ```
     ./pis4kubi.py flash -s AndroidAP -p password -n k8s-master-1
@@ -25,18 +28,23 @@ Described is the workflow for setting up a master node. For any worker, replace 
 ```
 
 - configure ssh: requires the password of the Raspberry Pi admin, 'hypriot'
+    - note: `-h k8s-mater-1` is the hostname specified in the flashing step
 
 ```
     ./pis4kubi.py -h k8s-master-1 setup_ssh
 ```
 
-- preparations (multi-command execution; note: restart after upgrade is important!)
+- preparations
+    - multi-command execution
+    - restart after upgrade is important!
+    - note: the last step downloads the [kubernetes setup files](https://github.com/mputz86/k8s-on-rpi)
 
 ```
     ./pis4kubi.py -h k8s-master-1 copy_config upgrade install restart prepare_k8s
 ```
 
-- install k8s-master (or worker)
+- install k8s-master
+    - important: for a worker node use `k8s_worker_install`
 
 ```
     ./pis4kubi.py -h k8s-master-1 k8s_master_install
