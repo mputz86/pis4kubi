@@ -1,7 +1,11 @@
 
 ## Script for setting up Raspberry Pi Kubernetes Cluster
 
-This script helps you to setup a Raspberry Pi cluster based on [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases). Setting up the cluster is is base on [https://github.com/mputz86/k8s-on-rpi](https://github.com/mputz86/k8s-on-rpi) (thanks to [awassink](https://github.com/awassink) for his work in the [repository I forked](https://github.com/awassink/k8s-on-rpi)).
+This script helps you to setup a Raspberry Pi cluster with the following features:
+- the OS is [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases)
+- setting up the cluster is base on [k8s-on-rpi](https://github.com/mputz86/k8s-on-rpi) (thanks to [awassink](https://github.com/awassink) for his work in the [repository I forked](https://github.com/awassink/k8s-on-rpi)).
+
+The documentation can be found [here](http://blog.kubernetes.io/2015/12/creating-raspberry-pi-cluster-running.html).
 
 
 ### Workflow
